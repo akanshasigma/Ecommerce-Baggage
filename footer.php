@@ -1,7 +1,23 @@
+<?php
+// Newsletter Subscription
+if(isset($_POST['subscribe']))
+{
+    $from='Baggage Online Store <www.baggageonlinestore.com>';
+    $to = $_POST['email'];
+    $subject = 'Welcome to Baggage Online Daily Update Newsletter';
+    $body = 'Congratulations! You are subscribed to the Handbags Store mailing list to receive updates on new arrivals, special offers and other discount information.';
+    $header= "From: $from";
+
+    mail($to,$subject,$body,$header);
+    // echo "($recipientAddr,$subjectStr,$mailBodyText,$headers)";
+    echo "<script>alert('Newsletter subscibed successfully! Check your mail box')</script>";
+}
+?>
+
 <!--/newsletter -->
 <section class="newsletter-w3pvt py-5">
     <div class="container py-md-5">
-        <form method="post" action="register.php">
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
             <p class="text-center">Subscribe to the Handbags Store mailing list to receive updates on new arrivals, special offers and other discount information.</p>
             <div class="row subscribe-sec">
                 <div class="col-md-9">
